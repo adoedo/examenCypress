@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+
+    options{
+        ansiColor('xterm')
+    }
+
+    stages{
+        stage('Build'){
+            steps{
+                echo "Building application"
+            }
+        }
+        stage('Testing'){
+            steps{
+                bat "npm i"
+                bat "npx cypress run"
+            }
+        }
+        stage('Deploy'){
+            steps{
+                echo 'Deploying la aplicacion'
+            }
+        }
+    }
+}

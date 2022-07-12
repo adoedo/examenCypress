@@ -1,0 +1,23 @@
+{
+  "name": "com.cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "allTest-chrome": "npx cypress run --browser chrome",
+    "run-only-store-chrome": "npx cypress run --browser chrome --spec 'cypress-curso/cypress/e2e/automationteststore/automationteststore.spec.js'",
+    "all-test-allure": "npx cypress run --env allure=true",
+    "allure-report": "npx allure generate allure-results --clean -o allure-report",
+    "delete-allure-report": "if exist allure-results rmdir /q /s allure-results && if exist allure-report rmdir /q /s allure-report",
+    "all-allure-report": "npm run delete-allure-report && npm run all-test-allure && npm run allure-report",
+    "cypress-dashboard": "npx cypress run --record --key 2135d3be-05f8-4aff-9892-4a6f1a55f2e6"
+  },
+  "author": "gabriel lozano",
+  "license": "ISC",
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.27.1",
+    "allure-commandline": "^2.17.2",
+    "cypress": "^10.0.2"
+  }
+}
